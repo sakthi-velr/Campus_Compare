@@ -1,10 +1,22 @@
 import collegesData from "../colleges.json";
 import { matchCollege, sortColleges } from "./queryEngine";
 
-// Simple query cache layers for high performance
-const findManyCache = new Map<string, any[]>();
-const countCache = new Map<string, number>();
-const findUniqueCache = new Map<string, any | null>();
+// Persist caching maps globally to survive Hot Module Reloads during development
+const globalForCache = globalThis as unknown as {
+  findManyCache?: Map<string, any[]>;
+  countCache?: Map<string, number>;
+  findUniqueCache?: Map<string, any | null>;
+};
+
+const findManyCache = globalForCache.findManyCache ?? new Map<string, any[]>();
+const countCache = globalForCache.countCache ?? new Map<string, number>();
+const findUniqueCache = globalForCache.findUniqueCache ?? new Map<string, any | null>();
+
+if (process.env.NODE_ENV !== "production") {
+  globalForCache.findManyCache = findManyCache;
+  globalForCache.countCache = countCache;
+  globalForCache.findUniqueCache = findUniqueCache;
+}
 
 /**
  * Mock Prisma Client wrapping the colleges JSON database.

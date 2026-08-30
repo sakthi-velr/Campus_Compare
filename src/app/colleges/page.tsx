@@ -33,6 +33,9 @@ function CollegesListContent() {
 
   // 1. Read filter parameters from the URL
   const querySearch = searchParams.get("search") || "";
+
+  // Local state for search input to support search debouncing
+  const [localSearch, setLocalSearch] = useState(querySearch);
   const queryLocation = searchParams.get("location") ? searchParams.get("location")!.split(",") : [];
   const queryCourse = searchParams.get("course") ? searchParams.get("course")!.split(",") : [];
   const queryType = searchParams.get("type") ? searchParams.get("type")!.split(",") : [];
@@ -120,8 +123,23 @@ function CollegesListContent() {
     router.push(`/colleges?${params.toString()}`);
   };
 
+  // Synchronize local search state when querySearch parameter changes externally
+  useEffect(() => {
+    setLocalSearch(querySearch);
+  }, [querySearch]);
+
+  // Debounced update of query parameters on keystrokes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (localSearch !== querySearch) {
+        updateUrl({ search: localSearch });
+      }
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [localSearch]);
+
   const handleSearchChange = (val: string) => {
-    updateUrl({ search: val });
+    setLocalSearch(val);
   };
 
   const handleFilterChange = (newFilters: FilterState) => {
@@ -203,10 +221,10 @@ function CollegesListContent() {
           transition={{ duration: 0.4 }}
         >
           <SearchBar
-            value={querySearch}
+            value={localSearch}
             onChange={handleSearchChange}
             placeholder="Search by college name, course, city, or state..."
-            isLoading={isLoading && querySearch !== ""}
+            isLoading={isLoading && localSearch !== ""}
             className="w-full"
           />
         </motion.div>
