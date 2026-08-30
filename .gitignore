@@ -40,6 +40,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# database files
+*.db
+*.sqlite
+*.sqlite3
+prisma/dev.db
+
 # agent customizations
 AGENTS.md
 CLAUDE.md
