@@ -19,7 +19,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
   onClear,
   className
 }) => {
-  const locations = ["Chennai", "Coimbatore", "Madurai", "Trichy", "Salem", "Vellore", "Thanjavur", "Tirunelveli"];
+  const locations = ["Chennai", "Coimbatore", "Madurai", "Trichy", "Salem", "Vellore"];
   const collegeTypes = ["Engineering", "Arts & Science", "Medical", "Management"];
   const ownerships = ["Government", "Government Aided", "Private"];
   const ratings = [4, 3, 2];
