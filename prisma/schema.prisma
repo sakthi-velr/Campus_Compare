@@ -1,0 +1,55 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+model College {
+  id              String   @id @default(uuid())
+  name            String
+  slug            String   @unique
+  city            String
+  district        String
+  state           String
+  address         String
+  collegeType     String   // e.g. "Engineering", "Arts & Science", "Medical", "Management"
+  ownership       String   // e.g. "Government", "Government Aided", "Private"
+  university      String
+  rating          Float
+  reviewCount     Int
+  annualFees      Int
+  averagePackage  Float    // Avg Package in LPA
+  highestPackage  Float    // Highest Package in LPA
+  placementRate   Float    // Placement rate in %
+  popularCourse   String
+  description     String
+
+  logo            String
+  coverImage      String
+  officialWebsite String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([name])
+  @@index([slug])
+  @@index([state])
+  @@index([city])
+  @@index([district])
+  @@index([collegeType])
+  @@index([ownership])
+  @@index([rating])
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  password  String   // Hashed password
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
