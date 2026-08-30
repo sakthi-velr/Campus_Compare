@@ -103,7 +103,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         {showPlaceholder && (
           <div 
             className={cn(
-              "pointer-events-none absolute left-11 text-sm font-medium text-slate-400 transition-opacity duration-300 select-none",
+              "pointer-events-none absolute left-11 right-10 truncate text-sm font-medium text-slate-400 transition-opacity duration-300 select-none",
               fadeState ? "opacity-100" : "opacity-0"
             )}
           >

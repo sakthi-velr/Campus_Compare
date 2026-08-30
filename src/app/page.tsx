@@ -304,7 +304,7 @@ export default function HomePage() {
           </motion.div>
 
           {/* Heading */}
-          <div className="max-w-3xl mx-auto space-y-4">
+          <div className="w-full max-w-3xl mx-auto space-y-4">
             <motion.h1 
               variants={headlineContainerVariants}
               initial="hidden"
@@ -332,7 +332,7 @@ export default function HomePage() {
               variants={descriptionVariants}
               initial="hidden"
               animate="visible"
-              className="text-base sm:text-lg text-slate-500 font-medium leading-relaxed max-w-xl mx-auto"
+              className="w-full max-w-xl mx-auto text-base sm:text-lg text-slate-500 font-medium leading-relaxed"
             >
               Explore colleges, compare fees and placements, and make a smarter decision about your education.
             </motion.p>
@@ -343,7 +343,7 @@ export default function HomePage() {
             variants={searchVariants}
             initial="hidden"
             animate="visible"
-            className="max-w-2xl mx-auto"
+            className="w-full max-w-2xl mx-auto"
           >
             <SearchBar
               value={searchQuery}
@@ -360,7 +360,7 @@ export default function HomePage() {
             variants={popularContainerVariants}
             initial="hidden"
             animate="visible"
-            className="flex flex-wrap items-center justify-center gap-2 max-w-xl mx-auto"
+            className="w-full max-w-xl mx-auto flex flex-wrap items-center justify-center gap-2"
           >
             <motion.span 
               variants={popularHeaderVariants}
