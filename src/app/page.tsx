@@ -43,8 +43,8 @@ export default function HomePage() {
     "Search by state...",
     "Search by course...",
     "Try IIT Madras...",
-    "Try Computer Science...",
-    "Try Chennai..."
+    "Try Chennai...",
+    "Try SSN..."
   ];
 
   const [featuredColleges] = useState<College[]>(() => (collegesData as College[]).slice(0, 6));

@@ -112,7 +112,7 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ college, index, hoverV
       </div>
 
       {/* 2. College Info Body */}
-      <div className="flex-1 p-5 flex flex-col justify-between space-y-4">
+      <div className="flex-1 p-4 sm:p-5 flex flex-col justify-between space-y-4">
         
         <div className="space-y-4 flex-1">
           {/* Category & Rating Row (Highlight on rating area hover) */}
@@ -144,7 +144,7 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ college, index, hoverV
           {/* Stats Matrix (Base Fees vs Avg Package - subtle value emphasis on hover) */}
           <div className="grid grid-cols-2 gap-3 pt-1">
             {/* Fees */}
-            <div className="group/stat flex items-center space-x-2.5 min-w-0 cursor-default">
+            <div className="group/stat flex items-center space-x-1.5 sm:space-x-2.5 min-w-0 cursor-default">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-50 text-slate-600 shrink-0 transition-colors duration-200 group-hover/stat:bg-emerald-50/40">
                 <IndianRupee className="h-4 w-4 text-emerald-600" />
               </div>
@@ -155,7 +155,7 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ college, index, hoverV
             </div>
 
             {/* Placement */}
-            <div className="group/stat flex items-center space-x-2.5 min-w-0 cursor-default">
+            <div className="group/stat flex items-center space-x-1.5 sm:space-x-2.5 min-w-0 cursor-default">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-50 text-slate-600 shrink-0 transition-colors duration-200 group-hover/stat:bg-indigo-50/40">
                 <Briefcase className="h-4 w-4 text-indigo-600" />
               </div>
@@ -170,8 +170,8 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ college, index, hoverV
           <div className="flex items-start gap-2 pt-1.5 min-h-[2.5rem]">
             <GraduationCap className="h-4 w-4 text-slate-400 shrink-0 mt-0.5" />
             <div className="flex flex-wrap items-center gap-1 min-w-0">
-              <span className="text-xs text-slate-500 font-medium whitespace-nowrap select-none">Popular:</span>
-              <span className="inline-block text-3xs px-2 py-0.5 rounded font-semibold bg-indigo-50/70 text-indigo-700 border border-indigo-100/30 max-w-full break-words transition-all duration-200 hover:scale-102 hover:bg-indigo-50 hover:border-indigo-200 select-none">
+              <span className="text-xs text-slate-500 font-medium select-none">Popular:</span>
+              <span className="inline-block text-3xs px-2 py-0.5 rounded font-semibold bg-indigo-50/70 text-indigo-700 border border-indigo-100/30 max-w-full break-words whitespace-normal transition-all duration-200 hover:scale-102 hover:bg-indigo-50 hover:border-indigo-200 select-none">
                 {college.popularCourse}
               </span>
             </div>
@@ -179,7 +179,7 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ college, index, hoverV
         </div>
 
         {/* 3. Action Buttons (Compare & View Details aligned at bottom) */}
-        <div className="pt-4 border-t border-slate-100 flex flex-col min-[350px]:flex-row gap-2 mt-auto">
+        <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-2 mt-auto">
           <button
             onClick={handleCompareClick}
             aria-label={`Compare ${college.name}`}

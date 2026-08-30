@@ -18,7 +18,7 @@ export const SortDropdown: React.FC<SortDropdownProps> = ({ value, onChange }) =
 
   return (
     <div className="flex items-center space-x-2">
-      <label htmlFor="sort-select" className="text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">
+      <label htmlFor="sort-select" className="hidden sm:inline-block text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">
         Sort By
       </label>
       <div className="relative">

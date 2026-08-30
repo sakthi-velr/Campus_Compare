@@ -266,7 +266,7 @@ function CollegesListContent() {
               )}
             </button>
 
-            <div className="text-xs sm:text-sm font-bold text-slate-500 whitespace-nowrap overflow-hidden">
+            <div className="hidden sm:block text-xs sm:text-sm font-bold text-slate-500 whitespace-nowrap overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={isLoading ? "loading" : isError ? "error" : totalCount}
@@ -360,7 +360,7 @@ function CollegesListContent() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-white p-6 shadow-xl flex flex-col justify-between overflow-y-auto lg:hidden"
+              className="fixed inset-y-0 right-0 z-50 w-[min(90vw,360px)] bg-white p-6 shadow-xl flex flex-col justify-between overflow-y-auto lg:hidden"
             >
               <div className="space-y-6">
                 <div className="flex items-center justify-between border-b border-slate-100 pb-3">
